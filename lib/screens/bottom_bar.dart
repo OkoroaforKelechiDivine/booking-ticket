@@ -1,3 +1,4 @@
+import 'package:app/screens/home_screen.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -10,17 +11,19 @@ class BottomBar extends StatefulWidget {
 
 class _BottomBarState extends State<BottomBar> {
 
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   static final List<Widget>_widgetOptions = <Widget>[
-    const Text("Home"),
+    const HomeScreen(),
     const Text("Search"),
     const Text("Tickets"),
     const Text("Profile")
   ];
 
   void _onItemTapped(int index){
-    _selectedIndex = index;
-    print("${_selectedIndex}");
+    setState(() {
+      _selectedIndex = index;
+    });
+    // print("Tapped index is: " + _selectedIndex.toString());
   }
 
   @override
@@ -34,9 +37,12 @@ class _BottomBarState extends State<BottomBar> {
       ),
 
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         elevation: 10,
         showSelectedLabels: false,
+        // the TYPE does not allow the icons to move
+        type: BottomNavigationBarType.fixed,
         showUnselectedLabels: false,
         selectedItemColor: Colors.blueGrey,
         unselectedItemColor: const Color(0xFF526480),
