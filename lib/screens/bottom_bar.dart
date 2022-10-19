@@ -15,8 +15,7 @@ class _BottomBarState extends State<BottomBar> {
         title: const Text("My tickets")
       ),
       body: const Center(
-        child: Text("My body"
-        ),
+        child: Text("My body"),
       ),
 
       bottomNavigationBar: BottomNavigationBar(
