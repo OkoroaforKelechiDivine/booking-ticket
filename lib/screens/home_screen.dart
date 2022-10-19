@@ -15,7 +15,12 @@ class HomeScreen extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Text("Good Morning"),
+                    Column(
+                      children: const [
+                        Text("Good Morning"),
+                        Text("Book Tickets"),
+                      ],
+                    ),
                     Container(
                       height: 50,
                       width: 50,
